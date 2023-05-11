@@ -282,7 +282,7 @@ BEGIN
 
 	SELECT INTO data_nascimento1 data_nascimento  FROM Empregados WHERE carteira_trabalho = $1;
 	
-	idade = DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento1);
+	idade = date_part('year',age(now(), data_nascimento1));
 
 	return idade;	
 	
